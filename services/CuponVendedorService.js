@@ -4,7 +4,7 @@ class CuponVendedorService {
         this.repositorioVendedor = repositorioVendedor;
     }
 
-    async buscarCuponPorNombreYProveedor(nombre, vendedor_id) {
+    async buscarCuponPorNombreYVendedor(nombre, vendedor_id) {
         return await this.repositorioCupon.buscarCuponPorNombreYVendedor(nombre, vendedor_id);
     }
 

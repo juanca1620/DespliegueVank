@@ -46,10 +46,6 @@ class RepositorioProductoVendedor {
     }
 
     async obtenerProductosPublicados (){
-        const productos = await ProductoVendedorDTO.findAll({where: {publicado: true}});
-        if (!productos) {
-            return { error: "No hay productos publicados", code: 404 };
-        }
         return productos.map(producto => producto.get({ plain: true }));
     }
 
@@ -67,6 +63,11 @@ class RepositorioProductoVendedor {
             return { error: "Producto no encontrado", code: 404 };
         }
         return producto.get({ plain: true });
+    }
+
+    async obtenerProductosPorVendedorId(vendedor_id) {
+        const productos = await ProductoVendedorDTO.findAll({ where: { vendedor_id } });
+        return productos.map(producto => producto.get({ plain: true }));
     }
 }
 

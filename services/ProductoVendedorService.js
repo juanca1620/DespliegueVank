@@ -58,15 +58,12 @@ class ProductoProvedorService {
         if (productos.error) {
             return productos;
         }
-        return { productos, code: 200 };
+        return productos
     }
 
     async obtenerProductosPorVendedorId(vendedor_id) {
         const productos = await this.repositorioProductoProvedor.obtenerProductosPorVendedorId(vendedor_id);
-        if (!productos || productos.length === 0) {
-            return { error: "No se encontraron productos para el vendedor especificado", code: 404 };
-        }
-        return { productos, code: 200 };
+        return  productos
     }
 }
 
