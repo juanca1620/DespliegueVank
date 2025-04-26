@@ -60,6 +60,14 @@ class ProductoProvedorService {
         }
         return { productos, code: 200 };
     }
+
+    async obtenerProductosPorVendedorId(vendedor_id) {
+        const productos = await this.repositorioProductoProvedor.obtenerProductosPorVendedorId(vendedor_id);
+        if (!productos || productos.length === 0) {
+            return { error: "No se encontraron productos para el vendedor especificado", code: 404 };
+        }
+        return { productos, code: 200 };
+    }
 }
 
 export default ProductoProvedorService;

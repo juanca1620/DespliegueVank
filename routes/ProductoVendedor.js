@@ -18,5 +18,10 @@ router.post('/publicar', verifyToken, valicacionesProductoVendedor.validacionesP
 router.post('/despublicar', verifyToken, valicacionesProductoVendedor.validacionesPublicarProducto, valicacionesProductoVendedor.validadorProductoProvedor, controladorProductoVendedor.despublicarProducto);
 router.put('/actualizarPrecio', verifyToken, valicacionesProductoVendedor.validacionesActualizarPrecio, valicacionesProductoVendedor.validadorProductoProvedor, controladorProductoVendedor.actualizarPrecioProducto);
 
+router.get('/publicados', verifyToken, controladorProductoVendedor.obtenerProductosPublicados);
+
+// Ruta para obtener productos por vendedor_id
+router.get('/vendedor/:vendedor_id', verifyToken, controladorProductoVendedor.obtenerProductosPorVendedorId);
+
 export default router;
 
