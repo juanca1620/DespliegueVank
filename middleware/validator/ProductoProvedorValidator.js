@@ -6,7 +6,7 @@ const validacionesCrearProducto = [
     body('descripcion').optional().isString().isLength({ min: 1, max: 1000 }).withMessage("La descripción debe tener entre 1 y 1000 caracteres"),
     body('cantidad_min').notEmpty().withMessage("cantidad min obligatorio").isNumeric().withMessage("La cantidad min debe ser un valor numérico"),
     body('url_imagen').notEmpty().withMessage('url obligatoria').isLength({min:1 , max: 1000}),
-    body('provedor_id').notEmpty().withMessage("vendedorId obligatorio").isNumeric().withMessage("El vendedorId debe ser un valor numérico")
+    body('proveedor_id').notEmpty().withMessage("vendedorId obligatorio").isNumeric().withMessage("El vendedorId debe ser un valor numérico")
 ]
 
 const validacionesEditarProducto = [
