@@ -64,7 +64,7 @@ class RepositorioProductoProvedor {
     async buscarPorProvedorId(id) {
         const productos = await productoProvedorDTO.findAll({
             where: {
-                provedor_id: id
+                proveedor_id: id
             }
         });
 
