@@ -69,7 +69,7 @@ const defaultHtmlTemplate = `
       <p>
         Desde hoy, tenés acceso a una experiencia pensada para conectar, compartir y crear valor real.
       </p>
-      <a href="https://nnndn11r-5173.usw3.devtunnels.ms/login" class="btn">Ir a la plataforma</a>
+      <a href="https://dashing-sunshine-83afa7.netlify.app/login" class="btn">Ir a la plataforma</a>
       <div class="footer">
         © 2025 Colab. Todos los derechos reservados.
       </div>
