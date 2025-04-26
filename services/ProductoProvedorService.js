@@ -5,7 +5,7 @@ class ProductoProvedorService {
     }
 
     async crearProducto(producto) {
-        const provedor = await this.existeProvedor(producto.provedor_id)
+        const provedor = await this.existeProvedor(producto.proveedor_id)
         if(!provedor){
             return {error : 'Provedor inexistente', code : 404}
         }
