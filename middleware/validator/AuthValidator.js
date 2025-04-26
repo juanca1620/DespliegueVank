@@ -6,7 +6,7 @@ const validacionesAuth = [
     body('telefono').notEmpty().withMessage('El telefono es obligatorio').isInt().isLength({ min: 10, max: 10 }).withMessage('Telefono inválido'),
     body('contrasenna').notEmpty().withMessage('La contrasenna es obligatoria').isLength({ min: 8,max:72 }).withMessage('Contraseña inválida, tiene que ser entre 8 y 72 caracteres'),
     body('rol').notEmpty().withMessage('El rol es obligatorio').custom((value) => {
-        if(value === 'cliente' || value === 'vendedor' || value === 'provedor'){
+        if(value === 'cliente' || value === 'vendedor' || value === 'proveedor'){
             return true;
         }else{
             return false;

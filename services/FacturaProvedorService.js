@@ -102,6 +102,23 @@ class FacturaProvedorService {
     async obtenerItemsFacturaPorIdFactura(id_factura) {
         return await this.repositorioItemFactura.buscarItemFacturaPorFacturaId(id_factura);
     }
+
+    async obtenerFacturasPorProveedorId(proveedor_id) {
+        const facturas = await this.repositorioFactura.obtenerFacturasPorProveedorId(proveedor_id);
+        if (facturas.error) {
+            return facturas;
+        }
+        return facturas;
+    }
+
+    // Obtener facturas por vendedor_id
+    async obtenerFacturasPorVendedorId(vendedor_id) {
+        const facturas = await this.repositorioFactura.obtenerFacturasPorVendedorId(vendedor_id);
+        if (facturas.error) {
+            return facturas;
+        }
+        return facturas;
+    }
 }
 
 export default FacturaProvedorService;

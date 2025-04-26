@@ -23,8 +23,8 @@ class RepositorioFacturaVendedor {
     }
 
     // Obtener todas las facturas de un proveedor por proveedor_id
-    async obtenerFacturasPorProveedorId(proveedor_id) {
-        const facturas = await FacturaVendedorDTO.findAll({ where: { provedor_id: proveedor_id } });
+    async obtenerFacturasPorVendedorId(vendedor_id) {
+        const facturas = await FacturaVendedorDTO.findAll({ where: {vendedor_id : vendedor_id } });
         return facturas.map(factura => factura.toJSON());
     }
 
@@ -46,6 +46,14 @@ class RepositorioFacturaVendedor {
         }
         await factura.destroy();
         return { message: "Factura eliminada correctamente", code: 200 };
+    }
+
+    async obtenerFacturasPorClienteId(cliente_id) {
+        const facturas = await FacturaVendedorDTO.findAll({ where: { cliente_id } });
+        if (!facturas || facturas.length === 0) {
+            return { error: "No se encontraron facturas para el cliente especificado", code: 404 };
+        }
+        return facturas.map(factura => factura.toJSON());
     }
 }
 

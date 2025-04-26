@@ -66,7 +66,7 @@ class RepositorioAuth {
         break;
       case 3:
         usuarioRol = await provedor.findOne({ where: { usuario_id: usuarioEncontrado.id } });
-        nombreUsuario = 'provedor';
+        nombreUsuario = 'proveedor';
         break;
       default:
         return { error: "Rol no válido", code: 400 };
@@ -84,7 +84,7 @@ class RepositorioAuth {
     }
     const token = jwt.sign(data,
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '24h' }
     );
 
     delete usuarioEncontrado.contrasenna;
@@ -114,7 +114,7 @@ class RepositorioAuth {
       case 'vendedor':
         rolId = 2;
         break;
-      case 'provedor':
+      case 'proveedor':
         rolId = 3;
         break;
       default:
@@ -150,14 +150,16 @@ class RepositorioAuth {
         break;
       case 3:
         usuarioRol = (await provedor.create({ usuario_id: usuarioCreado.id })).toJSON();
-        nombreUsuario = 'provedor';
+        nombreUsuario = 'proveedor';
         break;
     }
 
+    data.rol = nombreUsuario;
+    
     sendEmail(
       usuarioCreado.correo,
       'Bienvenido a la plataforma',
-      `Hola ${usuarioCreado.nombre_completo}, tu cuenta ha sido creada exitosamente.`
+      `Hola ${usuarioCreado.nombre}, tu cuenta ha sido creada exitosamente.`
     );
     
     usuarioCreado.rol = {
@@ -167,7 +169,7 @@ class RepositorioAuth {
 
     const token = jwt.sign(data,
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '24h' }
     );
 
     delete usuarioCreado.contrasenna;

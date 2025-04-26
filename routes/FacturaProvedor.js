@@ -40,4 +40,7 @@ router.post('/', verifyToken, facturaProvedorValidator.validacionesCrearFactura,
 router.get('/:id', verifyToken, controladorFacturaProvedor.obtenerFacturaPorId);
 router.get('/items/:id', verifyToken, controladorFacturaProvedor.obtenerItemsFacturaPorIdFactura);
 
+router.get('/proveedor/:proveedor_id', verifyToken, controladorFacturaProvedor.obtenerFacturasPorProveedorId);
+router.get('/vendedor/:vendedor_id', verifyToken, controladorFacturaProvedor.obtenerFacturasPorVendedorId);
+
 export default router;

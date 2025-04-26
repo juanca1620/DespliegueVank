@@ -39,9 +39,11 @@ const servicioFacturaVendedor = new FacturaVendedorService(
 // Crear instancia del controlador
 const controladorFacturaVendedor = new ControladorFacturaVendedor(servicioFacturaVendedor);
 
-// Configurar las rutas
 router.post('/', verifyToken, facturaVendedorValidator.validacionesCrearFactura, facturaVendedorValidator.validadorFactura, controladorFacturaVendedor.crearFacturaVendedor);
 router.get('/:id', verifyToken, controladorFacturaVendedor.obtenerFacturaPorId);
 router.get('/items/:id_factura', verifyToken, controladorFacturaVendedor.obtenerItemsFacturaPorIdFactura);
+
+router.get('/vendedor/:vendedor_id', verifyToken, controladorFacturaVendedor.obtenerFacturasPorVendedorId);
+router.get('/cliente/:cliente_id', verifyToken, controladorFacturaVendedor.obtenerFacturasPorClienteId);
 
 export default router;
